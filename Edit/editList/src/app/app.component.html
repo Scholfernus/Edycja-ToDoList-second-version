@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="addToDoItem">
+    <h1 style="font-size: 24px;">To Do List - do realizacji w tym tygodniu</h1>
+    <div class="input-group">
+      <input
+        placeholder="Dodaj zadanie"
+        type="text"
+        class="addToDoItem_editor"
+        [(ngModel)]="newTodo"
+        name="newTodo"
+        (keydown.enter)="addTodo()"
+      />
+      <button class="add-button" (click)="addTodo()">Dodaj</button>
+      <button class="remove-all-button" (click)="removeAllTodos()">Usuń wszystkie</button>
+    </div>
+  </div>
+  <div class="SectionMain">
+    <ul>
+      <li *ngFor="let todo of todos; let i = index" class="todo-item">
+        <ng-container *ngIf="editedTodoIndex !== i; else editMode">
+          {{ todo }}
+          <div class="button-group">
+            <button class="edit-button" (click)="editTodoIndex(i)">Edytuj</button>
+            <button class="remove-button" (click)="removeTodoIndex(i)">Usuń</button>
+          </div>
+        </ng-container>
+        <ng-template #editMode>
+          <input [(ngModel)]="editedTodo" type="text">
+          <button (click)="saveTodoIndex(i)">Zapisz</button>
+        </ng-template>      
+      </li>
+    </ul>
+  </div>
+</div>
