@@ -1,16 +1,17 @@
 .container {
-  box-shadow:  0 0 20px gray;
+  box-shadow:  0 0 20px rgb(52, 49, 49);
   width: 760px;
   margin: auto 0;
-  background-color: aliceblue;
+  background-color: rgb(200, 223, 245);
   display: flex;
   flex-direction: column;
   align-items: flex-start    
   
   }
   h1 {
-    background-color: #e9f29a;
-    border: black solid 1px;
+    background-color: #7f99f0;
+    border: black solid 1px; 
+    box-shadow: blue;   
   }
   .header {
     margin-bottom: 20px;
@@ -93,9 +94,8 @@
   }
   
   .delete-button {
-    padding: 5px 10px;
-    background-color: #f44336;
-    color: white;
+    padding: 5px 10px;    
+    color:black;
     border: black solid 1px;
     cursor: pointer;
   }
@@ -107,7 +107,7 @@
   .remove-all-button {
     background-color: red;
 
-    color: white;
+    color: black;
     border: black solid 1px;
     border-radius: 5px;
     padding: 8px 16px;
