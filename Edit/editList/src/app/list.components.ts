@@ -27,6 +27,7 @@ import { TodoService } from './todo.service';
     }
   `]
 })
+
 export class ListComponent {
   todos: string[];
 
@@ -38,3 +39,4 @@ export class ListComponent {
     this.todoService.removeTodo(todo);
   }
 }
+

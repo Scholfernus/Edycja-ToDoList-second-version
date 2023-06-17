@@ -11,7 +11,7 @@
         (keydown.enter)="addTodo()"
       />
       <button class="add-button" (click)="addTodo()">Dodaj</button>
-      <button class="remove-all-button" (click)="removeAllTodos()">Usuń wszystkie</button>
+      <button class="remove-all-button" (click)="removeAllTodos()">Usuń wszystkie</button>      
     </div>
   </div>
   <div class="SectionMain">
@@ -22,6 +22,7 @@
           <div class="button-group">
             <button class="edit-button" (click)="editTodoIndex(i)">Edytuj</button>
             <button class="remove-button" (click)="removeTodoIndex(i)">Usuń</button>
+            <button ng-click="addToFavorites(task)" ng-class="{'active': task.isFavorite}">Dodaj do ulubionych</button>
           </div>
         </ng-container>
         <ng-template #editMode>
@@ -36,3 +37,4 @@
 <button routerLink="/about">O nas</button>
 <a routerLink="/favorites">Ulubione</a>
 <div routerLink="/contact">Kontakt</div>
+<button routerLink="/favorites">Zobacz ulubione</button>
