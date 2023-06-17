@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class TodoService {
-  private todos: string[] = ['napisz poprawnie kod','usuń kod','edytuj kod', 'zadzwoń do Sola','kup książkę','zacznij się odchudzać'];
+  private todos: string[] = ['napisz poprawnie kod','usuń kod','edytuj kod', 'zadzwoń do Saula','kup książkę','zacznij się odchudzać'];
 
   constructor() {}
 
