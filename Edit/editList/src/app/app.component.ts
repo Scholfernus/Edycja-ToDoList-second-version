@@ -1,5 +1,6 @@
-import { Component, ViewChild, ElementRef, Inject } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { TodoService } from './todo.service';
+import { Router } from '@angular/router';
 
 interface Task {
   name: string;
@@ -18,9 +19,15 @@ export class AppComponent {
   newTodo: string = '';
   editedTodoIndex: number = -1;
   editedTodo: string = '';
+  favorites: Task[] = [];
 
-  constructor(@Inject(TodoService) private todoService: TodoService) {
+  constructor(private todoService: TodoService, private router: Router) {
     this.todos = this.todoService.getTodos().map(todo => ({ name: todo, isFavorite: false }));
+    this.updateFavorites();
+  }
+  
+  updateFavorites(): void {
+    this.favorites = this.todoService.getFavorites();
   }
 
   addTodo(): void {
@@ -31,7 +38,9 @@ export class AppComponent {
   }
 
   removeTodoIndex(index: number): void {
-    this.todoService.removeTodo(this.todos[index].name);
+    const removedTask = this.todos[index];
+    this.todoService.removeTodo(removedTask.name);
+    this.todos.splice(index, 1);
   }
 
   editTodoIndex(index: number): void {
@@ -41,6 +50,7 @@ export class AppComponent {
 
   saveTodoIndex(index: number): void {
     this.todoService.editTodo(this.todos[index].name, this.editedTodo);
+    this.todos[index].name = this.editedTodo;
     this.editedTodoIndex = -1;
     this.editedTodo = '';
   }
@@ -52,6 +62,16 @@ export class AppComponent {
   }
 
   addToFavorites(todo: Task): void {
-    todo.isFavorite = !todo.isFavorite;
+    this.todoService.addToFavorites(todo.name);
+    this.updateFavorites();
+  }
+
+  viewFavorites(): void {
+    this.router.navigate(['/favorites']);
+  }
+
+  removeFromFavorites(task: Task): void {
+    this.todoService.removeFromFavorites(task.name);
+    this.updateFavorites();
   }
 }

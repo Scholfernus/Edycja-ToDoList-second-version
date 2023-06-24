@@ -1,8 +1,13 @@
-<div class="container">  
-  <a routerLink="/home">Strona główna</a> 
-  <a routerLink="/favorites">Ulubione</a>
+<div class="container">
+  <div class="navigation">
+    <a routerLink="/home">Strona główna</a>
+    <a routerLink="/favorites">Ulubione</a>
+    <a routerLink="/about">O nas</a>
+    <a routerLink="/contact">Kontakt</a>
+  </div>
+  
   <div class="addToDoItem">
-    <h1 style="font-size: 24px;">To Do List - do realizacji w tym tygodniu <button routerLink="/favorites"> Zobacz ulubione</button></h1>
+    <h1>To Do List - do realizacji w tym tygodniu <button (click)="viewFavorites()">Zobacz ulubione</button></h1>
     <div class="input-group">
       <input
         placeholder="Dodaj zadanie"
@@ -16,8 +21,9 @@
       <button class="remove-all-button" (click)="removeAllTodos()">Usuń wszystkie</button>      
     </div>
   </div>
+  
   <div class="SectionMain">
-    <ul>
+    <ul class="todo-list">
       <li *ngFor="let todo of todos; let i = index" class="todo-item">
         <ng-container *ngIf="editedTodoIndex !== i; else editMode">
           {{ todo.name }}
@@ -27,6 +33,7 @@
             <button (click)="addToFavorites(todo)" [class.active]="todo.isFavorite">Dodaj do ulubionych</button>
           </div>
         </ng-container>
+        
         <ng-template #editMode>
           <input [(ngModel)]="editedTodo" type="text">
           <button (click)="saveTodoIndex(i)">Zapisz</button>
@@ -34,6 +41,14 @@
       </li>
     </ul>
   </div>  
+
+  <div class="favorites-section">
+    <h2>Ulubione zadania:</h2>
+    <ul class="favorites-list">
+      <li *ngFor="let favorite of favorites">
+        {{ favorite.name }}
+        <button (click)="removeFromFavorites(favorite)">Usuń z ulubionych</button>
+      </li>
+    </ul>
+  </div>
 </div>
-<a routerLink="/about">O nas</a>
-<a routerLink="/contact">Kontakt</a>

@@ -1,129 +1,131 @@
 .container {
-  box-shadow:  0 0 20px rgb(52, 49, 49);
+  box-shadow: 0 0 20px rgb(52, 49, 49);
   width: 760px;
-  margin: auto 0;
+  margin: auto;
   background-color: rgb(200, 223, 245);
   display: flex;
   flex-direction: column;
-  align-items: flex-start    
-  
-  }
-  h1 {
-    background-color: #7f99f0;
-    border: black solid 1px; 
-    box-shadow: blue;   
-  }
-  .header {
-    margin-bottom: 20px;
-  }
-  
-  .section {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  ul {
-    
-    padding: 0;
-    list-style-type: none;
-  }
-  
-  li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  li:last-child {
-    margin-bottom: 20px;
-  }
-  
-  li button {
-    margin-left: 10px;
-  }
+  align-items: flex-start;
+}
 
-  .input-field {
-    flex: 1;
-    padding: 10px;
-  }
-  
-  .add-button {
-    padding: 8px 16px;
-    border-radius: 6px;
-    background-color: #4caf50;
-    color: white;
-    border: solid black 1px;
-    cursor: pointer;
-  }
-  
-  .todo-list {
-    list-style: none;
-    padding: 0;
-  }
+h1 {
+  background-color: #7f99f0;
+  border: 1px solid black;
+  box-shadow: 0 0 5px blue;
+}
 
-  .addToDoItem{
-    margin-bottom:auto ;
-  }
-  .todo-item {    
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    border: 1px solid black;
-  }
-  
-  .todo-text {
-    flex: 1;
-    margin-right: 10px;
-  }
-  
-  .button-group {
-   margin-left: auto;
-   display: inline-block;
-  }
-  .button-group button {
-    margin-top: 5px;
-  }
-  .edit-button {
-    padding: 5px 10px;
-    background-color: #2196f3;
-    color: white;
-    border: solid black 1px;
-    cursor: pointer;
-    margin-right: 5px;
-  }
-  
-  .delete-button {
-    padding: 5px 10px;    
-    color:black;
-    border: black solid 1px;
-    cursor: pointer;
-  }
-  .edit-button,
-  .remove-button,
-  .save-button {
-    margin-right: 5px;
-  }
-  .remove-all-button {
-    background-color: red;
+.header {
+  margin-bottom: 20px;
+}
 
-    color: black;
-    border: black solid 1px;
-    border-radius: 5px;
-    padding: 8px 16px;
-    margin-left: 16px;
-    cursor: pointer;
-  }
-  .input-group {
-    display: flex;
-    align-items: center;
-  }
-  
-  .input-group input,
-  .input-group button {
-    margin-right: 10px;
-  }
-  
- 
-  
-  
+.section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+li:last-child {
+  margin-bottom: 20px;
+}
+
+li button {
+  margin-left: 10px;
+}
+
+.input-field {
+  flex: 1;
+  padding: 10px;
+}
+
+.add-button {
+  padding: 8px 16px;
+  border-radius: 6px;
+  background-color: #4caf50;
+  color: white;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+}
+
+.addToDoItem {
+  margin-bottom: auto;
+}
+
+.todo-item {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  border: 1px solid black;
+}
+
+.todo-text {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.button-group {
+  margin-left: auto;
+  display: inline-block;
+}
+
+.button-group button {
+  margin-top: 5px;
+}
+
+.edit-button {
+  padding: 5px 10px;
+  background-color: #2196f3;
+  color: white;
+  border: 1px solid black;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.delete-button {
+  padding: 5px 10px;
+  color: black;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.edit-button,
+.remove-button,
+.save-button {
+  margin-right: 5px;
+}
+
+.remove-all-button {
+  background-color: red;
+  color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 8px 16px;
+  margin-left: 16px;
+  cursor: pointer;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+}
+
+.input-group input,
+.input-group button {
+  margin-right: 10px;
+}

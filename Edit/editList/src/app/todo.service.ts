@@ -38,17 +38,17 @@ export class TodoService {
     this.favorites.push(task);
     task.isFavorite = true;
   }
-  removeFromFavorites(task: any){
-    let index = this.favorites.indexOf(task);
-    if (index>-1){
+  removeFromFavorites(task: any): void{
+    const index = this.favorites.indexOf(task);
+    if (index !==-1){
       this.favorites.splice(index,1);
       task.isFavorite = false;
     }
   }
-  getFavorites() {
+  getFavorites(): any[] {
     return this.favorites;
   }
-  isFavorite(task: any){
+  isFavorite(task: any): boolean{
     return this.favorites.includes(task);
   }
 }
