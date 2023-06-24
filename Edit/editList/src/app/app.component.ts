@@ -32,13 +32,12 @@ export class AppComponent {
 
   addTodo(): void {
     if (this.newTodo.trim() !== '') {
-      this.todoService.addTodo(this.newTodo);
-      this.todos.push({ name: this.newTodo, isFavorite: false });
+      const newTask: Task = { name: this.newTodo, isFavorite: false };
+      this.todoService.addTodo(newTask.name);
+      this.todos.push(newTask);
       this.newTodo = '';
     }
   }
-  
-  
 
   removeTodoIndex(index: number): void {
     const removedTask = this.todos[index];
@@ -74,7 +73,7 @@ export class AppComponent {
   }
 
   removeFromFavorites(task: Task): void {
-    this.todoService.removeFromFavorites(task.name);
+    this.todoService.removeFromFavorites(task);
     this.updateFavorites();
   }
 }

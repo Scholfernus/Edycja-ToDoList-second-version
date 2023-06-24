@@ -1,11 +1,16 @@
 import { Injectable } from '@angular/core';
 
+interface Task {
+  name: string;
+  isFavorite: boolean;
+}
+
 @Injectable({
   providedIn: 'root',
 })
 export class TodoService {
   private todos: string[] = ['napisz poprawnie kod','usuń kod','edytuj kod', 'zadzwoń do Saula','kup książkę','zacznij się odchudzać'];
-  favorites: any[]=[];
+  private favorites: Task[] = [];
 
   constructor() {}
 
@@ -34,21 +39,23 @@ export class TodoService {
   clearTodos(): void {
     this.todos = [];
   }
-  addToFavorites(task: any){
-    this.favorites.push(task);
-    task.isFavorite = true;
-  }
-  removeFromFavorites(task: any): void{
-    const index = this.favorites.indexOf(task);
-    if (index !==-1){
-      this.favorites.splice(index,1);
-      task.isFavorite = false;
-    }
-  }
-  getFavorites(): any[] {
+
+  getFavorites(): Task[] {
     return this.favorites;
   }
-  isFavorite(task: any): boolean{
-    return this.favorites.includes(task);
+
+  addToFavorites(todoName: string): void {
+    const todo = this.todos.find(todo => todo === todoName);
+    if (todo) {
+      const task: Task = { name: todo, isFavorite: true };
+      this.favorites.push(task);
+    }
+  }
+
+  removeFromFavorites(task: Task): void {
+    const index = this.favorites.indexOf(task);
+    if (index !== -1) {
+      this.favorites.splice(index, 1);
+    }
   }
 }
