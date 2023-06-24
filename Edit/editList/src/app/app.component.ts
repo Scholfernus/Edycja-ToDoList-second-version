@@ -33,9 +33,12 @@ export class AppComponent {
   addTodo(): void {
     if (this.newTodo.trim() !== '') {
       this.todoService.addTodo(this.newTodo);
+      this.todos.push({ name: this.newTodo, isFavorite: false });
       this.newTodo = '';
     }
   }
+  
+  
 
   removeTodoIndex(index: number): void {
     const removedTask = this.todos[index];
