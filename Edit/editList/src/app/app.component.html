@@ -20,11 +20,11 @@
     <ul>
       <li *ngFor="let todo of todos; let i = index" class="todo-item">
         <ng-container *ngIf="editedTodoIndex !== i; else editMode">
-          {{ todo }}
+          {{ todo.name }}
           <div class="button-group">
             <button class="edit-button" (click)="editTodoIndex(i)">Edytuj</button>
             <button class="remove-button" (click)="removeTodoIndex(i)">Usuń</button>
-            <button ng-click="addToFavorites(task)" ng-class="{'active': task.isFavorite}">Dodaj do ulubionych</button>
+            <button (click)="addToFavorites(todo)" [class.active]="todo.isFavorite">Dodaj do ulubionych</button>
           </div>
         </ng-container>
         <ng-template #editMode>
@@ -35,6 +35,5 @@
     </ul>
   </div>  
 </div>
-<button routerLink="/about">O nas</button>
-<div routerLink="/contact">Kontakt</div>
-
+<a routerLink="/about">O nas</a>
+<a routerLink="/contact">Kontakt</a>
