@@ -25,7 +25,7 @@ export class AppComponent {
     this.todos = this.todoService.getTodos().map(todo => ({ name: todo, isFavorite: false }));
     this.updateFavorites();
   }
-  
+  showFavorites: boolean = false;
   updateFavorites(): void {
     this.favorites = this.todoService.getFavorites();
   }
@@ -69,7 +69,7 @@ export class AppComponent {
   }
 
   viewFavorites(): void {
-    this.router.navigate(['/favorites']);
+    this.showFavorites = true;
   }
 
   removeFromFavorites(task: Task): void {

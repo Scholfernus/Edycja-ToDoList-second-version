@@ -42,7 +42,7 @@
     </ul>
   </div>  
 
-  <div class="favorites-section">
+  <div class="favorites-section" *ngIf = "showFavorites">
     <h2>Ulubione zadania:</h2>
     <ul class="favorites-list">
       <li *ngFor="let favorite of favorites">
